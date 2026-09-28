@@ -1,3 +1,13 @@
+DSA521S Group Mini-Project 2026
+
+Project
+
+NUST Service Centre Simulation: Designing and Evaluating Data Structures and Algorithms
+
+
+Group number: 6
+
+Group members:
 222133554---Waza Milijala---milijalawaza-tech
 225176130---Kashango Tatetala---225176130-KASHANGO
 219110972---Tjiharuka Utjiwee---Sirplacator
