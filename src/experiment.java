@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Experiment {
+public class experiment {
 
     private static final int[] SIZES = {20, 50, 100, 500};
 
@@ -50,10 +50,10 @@ public class Experiment {
                 hundredElementOriginal = copyArray(original);
             }
 
-            mainResults[idx++] = runAndPrint("Selection Sort", n, copyArray(original), Experiment::selectionSort);
-            mainResults[idx++] = runAndPrint("Insertion Sort", n, copyArray(original), Experiment::insertionSort);
-            mainResults[idx++] = runAndPrint("Merge Sort",     n, copyArray(original), Experiment::mergeSort);
-            mainResults[idx++] = runAndPrint("Quick Sort",     n, copyArray(original), Experiment::quickSort);
+            mainResults[idx++] = runAndPrint("Selection Sort", n, copyArray(original), experiment::selectionSort);
+            mainResults[idx++] = runAndPrint("Insertion Sort", n, copyArray(original), experiment::insertionSort);
+            mainResults[idx++] = runAndPrint("Merge Sort",     n, copyArray(original), experiment::mergeSort);
+            mainResults[idx++] = runAndPrint("Quick Sort",     n, copyArray(original), experiment::quickSort);
             System.out.println("-----------------------------------------------------------------");
         }
 
@@ -68,10 +68,10 @@ public class Experiment {
         System.out.println();
         printHeader();
 
-        ResultRow as1 = runAndPrint("Selection Sort", 100, copyArray(almostSorted), Experiment::selectionSort);
-        ResultRow as2 = runAndPrint("Insertion Sort", 100, copyArray(almostSorted), Experiment::insertionSort);
-        ResultRow as3 = runAndPrint("Merge Sort",     100, copyArray(almostSorted), Experiment::mergeSort);
-        ResultRow as4 = runAndPrint("Quick Sort",     100, copyArray(almostSorted), Experiment::quickSort);
+        ResultRow as1 = runAndPrint("Selection Sort", 100, copyArray(almostSorted), experiment::selectionSort);
+        ResultRow as2 = runAndPrint("Insertion Sort", 100, copyArray(almostSorted), experiment::insertionSort);
+        ResultRow as3 = runAndPrint("Merge Sort",     100, copyArray(almostSorted), experiment::mergeSort);
+        ResultRow as4 = runAndPrint("Quick Sort",     100, copyArray(almostSorted), experiment::quickSort);
 
         System.out.println();
         printAutoSummary(mainResults, as1, as2, as3, as4);

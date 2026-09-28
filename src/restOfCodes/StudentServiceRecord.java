@@ -1,11 +1,16 @@
+package restOfCodes;
+
+import DataStructures.Node;
+import DataStructures.StudentList;
+
 // ---------- Demonstration ----------
 public class StudentServiceRecord {
 
     private static void printSearch(StudentList list, int no) {
         Node n = list.searchStudent(no);
         if (n != null)
-            System.out.println("  FOUND: " + n.data.studentNumber + ", " + n.data.studentName
-                    + ", " + n.data.serviceType + ", " + n.data.estimatedServiceTime + " min");
+            System.out.println("  FOUND: " + n.data.getStudentNumber() + ", " + n.data.getName()
+                    + ", " + n.data.getServiceType() + ", " + n.data.getEstimatedServiceTime() + " min");
         else
             System.out.println("  NOT FOUND: student number " + no);
     }

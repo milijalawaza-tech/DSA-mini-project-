@@ -1,3 +1,5 @@
+package restOfCodes;
+
 public class SortingVerifier {
 
     // Part C Framework: Isolates the sort algorithm runtime from outside overheads

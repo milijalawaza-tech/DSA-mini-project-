@@ -1,3 +1,5 @@
+package SortingAlgorithms;
+
 public class InsertionSort {
 
     public static class Result {

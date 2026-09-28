@@ -19,7 +19,7 @@ ENDPROCEDURE
 
 FUNCTION evaluatePostfix(expression)
     tokens = split expression by whitespace
-    Initialize custom Stack
+    Initialize custom DataStructures.Stack
     FOR EACH token IN tokens
         IF token is an operator THEN
             operand2 = stack.pop()
@@ -35,7 +35,7 @@ ENDFUNCTION
 
 Part F: Report Content & Traces
 1. Trace of Postfix Expression: "12 5 + 3 ×"
-Current Token	Operation Completed	Current Stack State [bottom -> top]
+Current Token	Operation Completed	Current DataStructures.Stack State [bottom -> top]
 12	Push element	["12"]
 5	Push element	["12", "5"]
 +	Pop 5, pop 12. Compute 12 + 5 = 17. Push result	["17"]
