@@ -4,6 +4,11 @@ import DataStructures.Stack;
 
 public class PostfixEvaluator {
 
+    public static void main(String[] args) {
+        String expression = "5 3 + 2 *";
+        System.out.println("Result: " + evaluate(expression));
+    }
+
     public static double evaluate(String expression) {
         if (expression == null || expression.trim().isEmpty()) {
             throw new IllegalArgumentException("Expression cannot be null or empty");
