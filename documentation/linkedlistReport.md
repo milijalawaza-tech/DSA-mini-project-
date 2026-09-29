@@ -1,0 +1,7 @@
+Justification of our design Linked List
+
+A linked list was selected over an array/static list because it allows dynamic memory allocation it anables us to creat and destroy nodes as required from us, avoiding wasted space or the overhead of resizing a fixed-size array if we where to use arrays.
+insertNode(). Inserting a node  appends at the end, here shifting other elements is not required unlike in an array, though traversal to the end costs O(n) without a tail pointer.
+deleteNode(). Deleting of a node handles the head-deletion case separately from mid/end-list deletion, since the head pointer itself must be updated to avoid null-pointer errors and correctly preserves integrity in the list.
+searchNode() and traverseList(). for searching for a node and traversing a list they both run in O(n) time, which is expected and acceptable for a singly linked list, unlike an array, elements are not stored contiguously and cannot be accessed by index in O(1).
+A singly (rather than doubly) linked list was was the best for use to use because the required operations only demand forward traversal. no operation requires moving backward through the list, so the extra memory overhead of a previous pointer is unjustified.
