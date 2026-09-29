@@ -1,0 +1,382 @@
+1. Stack — Pseudocode
+A. PUSH operation
+PROCEDURE PUSH(value)
+
+    IF top = capacity - 1 THEN
+        DISPLAY "Stack Overflow"
+        STOP
+    END IF
+
+    top = top + 1
+    elements[top] = value
+
+END PROCEDURE
+
+        ┌───────────────┐
+        │     START     │
+        └───────┬───────┘
+                ↓
+        ┌───────────────────┐
+        │ Receive value     │
+        └────────┬──────────┘
+                 ↓
+        ┌──────────────────────┐
+        │ Is top = capacity-1? │
+        └───────┬────────┬─────┘
+              YES        NO
+               ↓          ↓
+     ┌────────────────┐  ┌──────────────┐
+     │ Stack Overflow │  │ top = top+1  │
+     └───────┬────────┘  └──────┬───────┘
+             │                  ↓
+             │          ┌─────────────────┐
+             │          │ elements[top] = │
+             │          │ value            │
+             │          └────────┬────────┘
+             ↓                   ↓
+        ┌────────────────────────────┐
+        │             END            │
+        └────────────────────────────┘
+2. POP Operation — Pseudocode
+PROCEDURE POP()
+
+    IF top = -1 THEN
+        DISPLAY "Stack is empty"
+        STOP
+    END IF
+
+    value = elements[top]
+    top = top - 1
+
+    RETURN value
+
+END PROCEDURE
+
+POP flowchart
+        ┌───────────────┐
+        │     START     │
+        └───────┬───────┘
+                ↓
+        ┌──────────────────┐
+        │ Is top = -1?     │
+        └───────┬────┬─────┘
+              YES    NO
+               ↓      ↓
+      ┌────────────┐  ┌─────────────────┐
+      │ Stack Empty│  │ value =         │
+      └─────┬──────┘  │ elements[top]   │
+            │             └────────┬────────┘
+            │                  ↓
+            │         ┌─────────────────┐
+            │         │ top = top - 1   │
+            │         └────────┬────────┘
+            │                  ↓
+            │         ┌─────────────────┐
+            │         │ Return value    │
+            │         └────────┬────────┘
+            ↓                  ↓
+        ┌────────────────────────────┐
+        │             END            │
+        └────────────────────────────┘
+3. PEEK Operation — Pseudocode
+PROCEDURE PEEK()
+
+    IF top = -1 THEN
+        DISPLAY "Stack is empty"
+        STOP
+    END IF
+
+    RETURN elements[top]
+
+END PROCEDURE
+
+PEEK flowchart
+       ┌──────────────┐
+       │    START     │
+       └──────┬───────┘
+              ↓
+       ┌────────────────┐
+       │ Is top = -1?   │
+       └──────┬─────┬───┘
+            YES     NO
+             ↓       ↓
+      ┌──────────┐  ┌─────────────────┐
+      │   EMPTY  │  │ Return          │
+      │   STACK  │  │ elements[top]   │
+      └────┬─────┘  └────────┬────────┘
+           │                 │
+           └────────┬────────┘
+                    ↓
+             ┌─────────────┐
+             │     END     │
+             └─────────────┘
+4. POSTFIX EVALUATION — Pseudocode
+FUNCTION EVALUATE_POSTFIX(expression)
+
+    IF expression is empty THEN
+        DISPLAY "Expression cannot be empty"
+        STOP
+    END IF
+
+    tokens = SPLIT expression by spaces
+
+    CREATE empty stack
+
+    FOR EACH token IN tokens
+
+        IF token is an operator THEN
+
+            IF stack is empty THEN
+                DISPLAY "Invalid expression"
+                STOP
+            END IF
+
+            operand2 = POP stack
+
+            IF stack is empty THEN
+                DISPLAY "Invalid expression"
+                STOP
+            END IF
+
+            operand1 = POP stack
+
+            result = PERFORM_OPERATION(
+                        operand1,
+                        operand2,
+                        token
+                     )
+
+            PUSH result onto stack
+
+        ELSE
+
+            IF token is a valid number THEN
+                PUSH token onto stack
+            ELSE
+                DISPLAY "Invalid token"
+                STOP
+            END IF
+
+        END IF
+
+    END FOR
+
+    finalResult = POP stack
+
+    IF stack is not empty THEN
+        DISPLAY "Expression is malformed"
+        STOP
+    END IF
+
+    RETURN finalResult
+
+END FUNCTION
+
+5. Postfix Evaluation Flowchart
+                  ┌───────────────┐
+                  │     START     │
+                  └───────┬───────┘
+                          ↓
+              ┌───────────────────────┐
+              │ Read postfix          │
+              │ expression            │
+              └───────────┬───────────┘
+                          ↓
+              ┌───────────────────────┐
+              │ Split into tokens     │
+              └───────────┬───────────┘
+                          ↓
+                 ┌─────────────────┐
+                 │ More tokens?    │
+                 └───────┬─────┬───┘
+                       YES      NO
+                        ↓        ↓
+              ┌────────────────┐ │
+              │ Read token     │ │
+              └───────┬────────┘ │
+                      ↓           │
+              ┌────────────────┐  │
+              │ Is token an    │  │
+              │ operator?      │  │
+              └──────┬─────┬───┘  │
+                    YES     NO     │
+                     ↓       ↓     │
+             ┌────────────┐ ┌───────────────┐
+             │ Pop operand│ │ Is token a    │
+             │ 2          │ │ valid number? │
+             └─────┬──────┘ └──────┬────┬───┘
+                   ↓              YES    NO
+             ┌────────────┐        ↓      ↓
+             │ Pop operand│    ┌────────┐ ┌──────────┐
+             │ 1          │   │ Push   │ │  ERROR   │
+             └─────┬──────┘   │ number │ └──────────┘
+                   ↓           └────┬───┘
+             ┌──────────────┐       │
+             │ Perform      │       │
+             │ operation    │       │
+             └──────┬───────┘       │
+                    ↓               │
+             ┌──────────────┐      │
+             │ Push result  │──────┘
+             │ onto stack   │
+             └──────┬───────┘
+                    │
+                    └───────────────→ More tokens?
+                                     
+                                      NO
+                                       ↓
+                              ┌─────────────────┐
+                              │ Pop final       │
+                              │ result          │
+                              └────────┬────────┘
+                                       ↓
+                              ┌─────────────────┐
+                              │ Stack empty?    │
+                              └──────┬──────┬───┘
+                                   YES      NO
+                                    ↓        ↓
+                              ┌─────────┐ ┌──────────┐
+                              │ RETURN  │ │  ERROR   │
+                              │ RESULT  │    └──────────┘
+                              └────┬────┘
+                                   ↓
+                              ┌─────────────┐
+                              │     END     │
+                              └─────────────┘
+6. Daily Statistics — Pseudocode
+
+PROCEDURE DISPLAY_DAILY_STATISTICS(serviceTimes)
+
+    IF serviceTimes is empty THEN
+        DISPLAY "No student tracking records found"
+        STOP
+    END IF
+
+    totalStudents = LENGTH(serviceTimes)
+    totalServiceTime = 0
+
+    highestServiceTime = serviceTimes[0]
+    lowestServiceTime = serviceTimes[0]
+
+    studentsOver10Min = 0
+
+    FOR each time IN serviceTimes
+
+        totalServiceTime = totalServiceTime + time
+
+        IF time > highestServiceTime THEN
+            highestServiceTime = time
+        END IF
+
+        IF time < lowestServiceTime THEN
+            lowestServiceTime = time
+        END IF
+
+        IF time > 10 THEN
+            studentsOver10Min = studentsOver10Min + 1
+        END IF
+
+    END FOR
+
+    averageServiceTime =
+        totalServiceTime / totalStudents
+
+    DISPLAY totalStudents
+    DISPLAY totalServiceTime
+    DISPLAY averageServiceTime
+    DISPLAY highestServiceTime
+    DISPLAY lowestServiceTime
+    DISPLAY studentsOver10Min
+
+END PROCEDURE
+
+7. Merge Sort — Pseudocode
+PROCEDURE MERGE_SORT(array, left, right)
+
+    IF left < right THEN
+
+        middle = (left + right) / 2
+
+        MERGE_SORT(array, left, middle)
+
+        MERGE_SORT(array, middle + 1, right)
+
+        MERGE(array, left, middle, right)
+
+    END IF
+
+END PROCEDURE
+Merge Sort diagram
+              Original Array
+                    │
+                    ↓
+          ┌───────────────────┐
+          │ Divide the array  │
+          └─────────┬─────────┘
+                    ↓
+             ┌──────┴──────┐
+             ↓             ↓
+          Left Half     Right Half
+             │             │
+             ↓             ↓
+          Divide         Divide
+             │             │
+             ↓             ↓
+        Smaller arrays / single elements
+             │             │
+             └──────┬──────┘
+                    ↓
+             ┌─────────────┐
+             │    MERGE    │
+             │ in sorted   │
+             │    order    │
+             └──────┬──────┘
+                    ↓
+             ┌─────────────┐
+             │ Sorted Array│
+             └─────────────┘
+
+overall structure
+                    PERSON 3
+                       │
+          ┌────────────┼────────────┐
+          ↓            ↓            ↓
+       STACK       STATISTICS    SORTING
+          │            │            │
+     ┌────┼────┐       │       MERGE SORT
+     ↓    ↓    ↓       │            │
+   PUSH  POP  PEEK      │      ┌─────┴─────┐
+     │    │    │        │      ↓           ↓
+     └────┴────┘        │    DIVIDE       MERGE
+          │             │      │           │
+          ↓             ↓      └─────┬─────┘
+   POSTFIX EVALUATOR   DAILY         ↓
+          │           STATISTICS   SORTED
+          ↓                         ARRAY
+       OPERATORS
+          │
+          ↓
+     FINAL RESULT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
