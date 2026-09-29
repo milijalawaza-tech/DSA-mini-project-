@@ -1,0 +1,494 @@
+﻿DSA521S Simple Test Requirements - Recorded Test Results
+Project source: C:\Users\Waza Milijala\OneDrive\new\OneDrive\Desktop\DSA-mini-project-\src
+Generated: 2026-09-29
+
+=== CLEAN COMPILE ===
+PASS: all project Java source files compile into a fresh output folder.
+
+=== QUEUE, LINKED LIST, STACK, ARRAY, SORT TESTS ===
+=== QUEUE REQUIREMENTS ===
+PASS: queue initially empty
+restOfCodes.Student added to waiting queue.
+restOfCodes.Student added to waiting queue.
+restOfCodes.Student added to waiting queue.
+restOfCodes.Student added to waiting queue.
+restOfCodes.Student added to waiting queue.
+restOfCodes.Student added to waiting queue.
+PASS: queue non-empty after six arrivals
+PASS: peek returns first arrival
+PASS: dequeue serves student 1 in FIFO order
+PASS: dequeue serves student 2 in FIFO order
+PASS: dequeue serves student 3 in FIFO order
+PASS: peek returns fourth student after three serves
+Queue display of remaining students:
+
+Waiting Students:
+Student Number: 4, Name: Student4, Service: Service, Time: 7 minutes
+Student Number: 5, Name: Student5, Service: Service, Time: 8 minutes
+Student Number: 6, Name: Student6, Service: Service, Time: 9 minutes
+PASS: queue empty after draining
+
+=== LINKED LIST REQUIREMENTS ===
+After beginning insertion:
+  head -> [10 | First | next] -> NULL
+After end insertion:
+  head -> [10 | First | next] -> [30 | Last | next] -> NULL
+After position-2 insertion:
+  head -> [10 | First | next] -> [20 | Middle | next] -> [30 | Last | next] -> NULL
+PASS: beginning, end, and specified-position insertion
+PASS: search finds inserted student 20
+After deleting student 20:
+  head -> [10 | First | next] -> [30 | Last | next] -> NULL
+PASS: delete removes student 20
+List traversal:
+  Pos  restOfCodes.Student NoName            Service Type        Est. Time (min)
+  --------------------------------------------------------------------
+  1    10          First           Registration        12
+  2    30          Last            Fees                8
+
+=== STACK / POSTFIX REQUIREMENTS ===
+push 5; top=5
+push 3; top=3
+apply +; stack result=8.0
+push 2; top=2
+apply *; final stack=16.0
+PASS: custom stack push/pop/peek trace evaluates to 16
+PASS: PostfixEvaluator returns 16.0 for 5 3 + 2 *
+
+=== ARRAY STATISTICS REQUIREMENTS ===
+Input service times: [12, 5, 8, 22, 15, 7, 3]
+
+=============================================
+   OPTION 8: DAILY SERVICE CENTRE STATISTICS 
+=============================================
+ Total Students Served             : 7
+ Total Accumulated Service Time   : 72 mins
+ Average Service Time              : 10.29 mins
+ Highest Service Time Registered   : 22 mins
+ Lowest Service Time Registered    : 3 mins
+ Students Delayed (> 10 mins)      : 3
+=============================================
+PASS: statistics input contains seven served times
+
+=== SORTING CORRECTNESS ===
+PASS: Selection Sort output index 0
+PASS: Selection Sort output index 1
+PASS: Selection Sort output index 2
+PASS: Selection Sort output index 3
+PASS: Selection Sort output index 4
+PASS: Selection Sort output index 5
+PASS: Selection Sort output index 6
+PASS: Selection Sort output index 7
+PASS: Selection Sort output index 8
+PASS: Selection Sort output index 9
+PASS: Selection Sort sorts the specified 10-value test array
+PASS: Insertion Sort output index 0
+PASS: Insertion Sort output index 1
+PASS: Insertion Sort output index 2
+PASS: Insertion Sort output index 3
+PASS: Insertion Sort output index 4
+PASS: Insertion Sort output index 5
+PASS: Insertion Sort output index 6
+PASS: Insertion Sort output index 7
+PASS: Insertion Sort output index 8
+PASS: Insertion Sort output index 9
+PASS: Insertion Sort sorts the specified 10-value test array
+PASS: Merge Sort output index 0
+PASS: Merge Sort output index 1
+PASS: Merge Sort output index 2
+PASS: Merge Sort output index 3
+PASS: Merge Sort output index 4
+PASS: Merge Sort output index 5
+PASS: Merge Sort output index 6
+PASS: Merge Sort output index 7
+PASS: Merge Sort output index 8
+PASS: Merge Sort output index 9
+PASS: Merge Sort sorts the specified 10-value test array
+PASS: Quick Sort output index 0
+PASS: Quick Sort output index 1
+PASS: Quick Sort output index 2
+PASS: Quick Sort output index 3
+PASS: Quick Sort output index 4
+PASS: Quick Sort output index 5
+PASS: Quick Sort output index 6
+PASS: Quick Sort output index 7
+PASS: Quick Sort output index 8
+PASS: Quick Sort output index 9
+PASS: Quick Sort sorts the specified 10-value test array
+
+=== SORTING EXPERIMENT (actual output with comparisons and nanoseconds) ===
+=================================================================
+ DSA521S PART C - ALGORITHM EXPERIMENT
+=================================================================
+Algorithm        | Input Size  | Comparisons    | Time (ns)     
+-----------------------------------------------------------------
+Selection Sort   | 20          | 190            | 9200          
+Insertion Sort   | 20          | 135            | 5800          
+Merge Sort       | 20          | 64             | 13300         
+Quick Sort       | 20          | 60             | 7600          
+-----------------------------------------------------------------
+Selection Sort   | 50          | 1225           | 31400         
+Insertion Sort   | 50          | 599            | 16500         
+Merge Sort       | 50          | 217            | 26400         
+Quick Sort       | 50          | 229            | 12900         
+-----------------------------------------------------------------
+Selection Sort   | 100         | 4950           | 103600        
+Insertion Sort   | 100         | 2806           | 68000         
+Merge Sort       | 100         | 540            | 55500         
+Quick Sort       | 100         | 650            | 30400         
+-----------------------------------------------------------------
+Selection Sort   | 500         | 124750         | 1484400       
+Insertion Sort   | 500         | 62525          | 1613600       
+Merge Sort       | 500         | 3860           | 318800        
+Quick Sort       | 500         | 5139           | 207500        
+-----------------------------------------------------------------
+
+=================================================================
+ ALMOST-SORTED 100-ELEMENT TEST
+ (100-element array sorted, then 5 neighbouring pairs swapped)
+=================================================================
+Preview (first 20 values): [22, 28, 30, 30, 31, 32, 36, 66, 71, 94, 94, 105, 110, 141, 143, 152, 173, 169, 201, 229, ...]
+
+Algorithm        | Input Size  | Comparisons    | Time (ns)     
+-----------------------------------------------------------------
+Selection Sort   | 100         | 4950           | 78500         
+Insertion Sort   | 100         | 104            | 5400          
+Merge Sort       | 100         | 356            | 16200         
+Quick Sort       | 100         | 4710           | 24400         
+
+=================================================================
+ AUTO-GENERATED SUMMARY (based on the actual run above)
+=================================================================
+1. Fewest comparisons (any single run): Quick Sort -> 60 comparisons at n=20
+2. Most comparisons (any single run):   Selection Sort -> 124750 comparisons at n=500
+3. Best on almost-sorted array:         Insertion Sort -> 104 comparisons
+
+(Use these figures, plus the full table above, to write your
+ answers to all six analysis questions in the project report.)
+
+=== INTEGRATED MENU TEST ===
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number: Enter student name: Enter service type: Enter estimated service time in minutes: restOfCodes.Student added to waiting queue.
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number: Enter student name: Enter service type: Enter estimated service time in minutes: restOfCodes.Student added to waiting queue.
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number: Enter student name: Enter service type: Enter estimated service time in minutes: restOfCodes.Student added to waiting queue.
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number: Enter student name: Enter service type: Enter estimated service time in minutes: restOfCodes.Student added to waiting queue.
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number: Enter student name: Enter service type: Enter estimated service time in minutes: restOfCodes.Student added to waiting queue.
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number: Enter student name: Enter service type: Enter estimated service time in minutes: restOfCodes.Student added to waiting queue.
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: 
+Waiting Students:
+Student Number: 101, Name: Maria, Service: Registration, Time: 12 minutes
+Student Number: 102, Name: Tomas, Service: Card, Time: 5 minutes
+Student Number: 103, Name: Ndapewa, Service: Fees, Time: 8 minutes
+Student Number: 104, Name: Simon, Service: Documents, Time: 4 minutes
+Student Number: 105, Name: Test Five, Service: Enquiry, Time: 9 minutes
+Student Number: 106, Name: Test Six, Service: Collection, Time: 6 minutes
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Student served: Student Number: 101, Name: Maria, Service: Registration, Time: 12 minutes
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Student served: Student Number: 102, Name: Tomas, Service: Card, Time: 5 minutes
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Student served: Student Number: 103, Name: Ndapewa, Service: Fees, Time: 8 minutes
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: 
+=============================================
+   OPTION 8: DAILY SERVICE CENTRE STATISTICS 
+=============================================
+ Total Students Served             : 3
+ Total Accumulated Service Time   : 25 mins
+ Average Service Time              : 8.33 mins
+ Highest Service Time Registered   : 12 mins
+ Lowest Service Time Registered    : 5 mins
+ Students Delayed (> 10 mins)      : 1
+=============================================
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Sorted service times: 5 8 12 
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number: Enter student name: Enter service type: Enter service time in minutes: Enter insertion position: 
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number: Enter student name: Enter service type: Enter service time in minutes: Enter insertion position: 
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice:   Pos  restOfCodes.Student NoName            Service Type        Est. Time (min)
+  --------------------------------------------------------------------
+  1    201         Record One      Registration        12
+  2    202         Record Two      Fees                8
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number to search: Record found: Student Number: 202, Name: Record Two, Service: Fees, Time: 8 minutes
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Enter student number to remove: 
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice:   Pos  restOfCodes.Student NoName            Service Type        Est. Time (min)
+  --------------------------------------------------------------------
+  1    201         Record One      Registration        12
+
+========================================
+CAMPUS SERVICE CENTRE
+========================================
+1. Add student to waiting queue
+2. Serve next student (remove from queue)
+3. Display waiting students
+4. Add student service record (Linked List - insertStudent())
+5. Display student service records
+6. Search for student record
+7. Remove student record
+8. Display daily statistics
+9. Sort service times
+10. Run sorting experiment
+11. Exit
+Enter your choice: Exiting Campus Service Centre.
+
+Result: all recorded runs exited successfully.
